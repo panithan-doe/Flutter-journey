@@ -60,25 +60,20 @@ String? firstName; // firstName can be null
     print(list);  // [210, 21, 43, 45, 23]
   }
   ```
-* Methods <br>
-  `List<String> names = ['Raj', 'John', 'Rocky'];`    
-  - `add()`: add 1 item (add to the end of list)
-    ```dart
-    names.add('Mike');  // ['Raj', 'John', 'Rocky', 'Mike']
-    ```
-  - `addAll()`: add multiple items (add to the end of list)
-    ```dart
-    names.addAll(['Mike', 'Doe']);  // ['Raj', 'John', 'Rocky', 'Mike', 'Doe']
-    ```
-  - `insert()`: insert item at the specific index.
-    ```dart
-    names.insert(2, 'Jane');  // [Raj, John, Jane, Rocky]
-    ```
-  - `remove()`: remove item by value
-    ```dart
-    names.remove('John')  // ['Raj', 'Rocky']
-    ```
-  - `removeAt()`: remove item by index
-    ```dart
-    names.removeAt(2)  // [Raj, John]
-    ```
+`List<String> names = ['Raj', 'John', 'Rocky'];`    
+- `names.add('Mike');  // ['Raj', 'John', 'Rocky', 'Mike']`
+- `names.addAll(['Mike', 'Doe']);  // ['Raj', 'John', 'Rocky', 'Mike', 'Doe']`
+- `names.insert(2, 'Jane');  // [Raj, John, Jane, Rocky]`
+- `names.remove('John')  // ['Raj', 'Rocky']`
+- `names.removeAt(2)  // [Raj, John]`
+
+### Set
+faster than list!<br>
+`Set<String> fruits = { 'Apple', 'Orange', 'Mango', 'Banana' }`
+* `fruits.first  // Apple`
+* `fruits.last  // Banana`
+* `fruits.isEmpty  // false`
+* `fruits.isNotEmpty  // true`
+* `fruits.contains('Mango')  // true`
+* `fruits.add('Lemon')  // { Apple, Orange, Mango, Banana, Lemon }`
+
