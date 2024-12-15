@@ -92,5 +92,50 @@ faster than list!<br>
   `countryCapital['Thailand'] = 'Bangkok';`
 * loop throgh map
   ```dart
-  
+  countryCapital.forEach((key, value) => print('$key, $value'));
   ```
+  you can notice that `forEach` in Dart and JavaScript is not use the same purpose.
+  key differences
+  
+  Allow | JavaScript | Dart
+  --- | --- | --- 
+  `break` | ❌ | ❌  
+  access to index | ✅ | ❌
+  iterator | all iterating over JS | list, set, map only
+  callback function | ✅ | ✅
+
+
+* remove where
+  ```dart
+  countryCapital.removeWhere((key, value) => value == 'Beijing');
+  ```
+
+
+### User input
+General structure
+```dart
+import 'dart:io';
+
+void main() {
+  print("Enter name:");
+  String? name = stdin.readLineSync();
+  print('The input name is $name.');
+
+}
+```
+
+the value you input is always `String`. if you want to use `Integer`, you need to parse it first.
+```dart
+import 'dart:io';
+
+void main() {
+  print("Enter number:");
+  int? number = int.parse(stdin.readLineSync()!);  // use '!' to tell the compiler "I am sure this value is not null."
+  print(number.runtimeType);
+  print('The input number is $number.');
+}
+```
+NOTE: why we use `!` 
+* `stdin.readLineSync()` returns a nullable `String?`, meaning it can either be a `String` or `null`.
+* but `int.parse` is expected `String`, not `String?`. so we need to tell the compiler that this value is `String`.
+  
