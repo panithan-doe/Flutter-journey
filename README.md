@@ -61,19 +61,36 @@ String? firstName; // firstName can be null
   }
   ```
 `List<String> names = ['Raj', 'John', 'Rocky'];`    
-- `names.add('Mike');  // ['Raj', 'John', 'Rocky', 'Mike']`
-- `names.addAll(['Mike', 'Doe']);  // ['Raj', 'John', 'Rocky', 'Mike', 'Doe']`
-- `names.insert(2, 'Jane');  // [Raj, John, Jane, Rocky]`
-- `names.remove('John')  // ['Raj', 'Rocky']`
-- `names.removeAt(2)  // [Raj, John]`
+- `names.add('Mike')` -> ['Raj', 'John', 'Rocky', 'Mike']
+- `names.addAll(['Mike', 'Doe'])` -> ['Raj', 'John', 'Rocky', 'Mike', 'Doe']
+- `names.insert(2, 'Jane')` -> [Raj, John, Jane, Rocky]
+- `names.remove('John')` -> ['Raj', 'Rocky']
+- `names.removeAt(2)` -> [Raj, John]
 
 ### Set
 faster than list!<br>
 `Set<String> fruits = { 'Apple', 'Orange', 'Mango', 'Banana' }`
-* `fruits.first  // Apple`
-* `fruits.last  // Banana`
-* `fruits.isEmpty  // false`
-* `fruits.isNotEmpty  // true`
-* `fruits.contains('Mango')  // true`
-* `fruits.add('Lemon')  // { Apple, Orange, Mango, Banana, Lemon }`
+* `fruits.first` -> Apple
+* `fruits.last` -> Banana
+* `fruits.isEmpty` -> false
+* `fruits.isNotEmpty` -> true
+* `fruits.contains('Mango')` -> true
+* `fruits.add('Lemon')` -> { Apple, Orange, Mango, Banana, Lemon }
 
+### Map
+* store as keys and values
+```dart
+  Map<String, String> countryCapital = {
+    'USA' : 'Washington',
+    'India' : 'New Delhi',
+    'China' : 'Beijing',
+  };
+```
+* `countryCapital.keys` -> (USA, India, China)
+* `countryCapital.values` -> (Washington, New Delhi, Beijing)
+* Adding item: <br>
+  `countryCapital['Thailand'] = 'Bangkok';`
+* loop throgh map
+  ```dart
+  
+  ```
