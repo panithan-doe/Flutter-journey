@@ -2,10 +2,7 @@
 
 # dart#2
 
-* use `?` at the end of a variable name to declare that properties "can be null" 
-```dart
-String? firstName; // firstName can be null
-```
+
 
 ## Enum
 * print `enum`
@@ -111,7 +108,7 @@ faster than list!<br>
   ```
 
 
-### User input
+## User input
 General structure
 ```dart
 import 'dart:io';
@@ -138,4 +135,66 @@ void main() {
 NOTE: why we use `!` 
 * `stdin.readLineSync()` returns a nullable `String?`, meaning it can either be a `String` or `null`.
 * but `int.parse` is expected `String`, not `String?`. so we need to tell the compiler that this value is `String`.
+
+## Null Safety
+* use `?` at the end of a variable name to declare that properties "can be null" 
+```dart
+String? firstName; // firstName can be null
+```
+
+### null-aware operators
+  ![{9A5C8893-9A53-4920-A156-6F6F7893502F}](https://github.com/user-attachments/assets/78def860-44b6-45bf-81fe-d698f6b2afbe)
+
+* `!`: to ensure that the value is non-null
+  ```dart
+  String? message = "Hello, Dart!";
+  String result = message!; // Works because message is not null.
   
+  String? message = null;
+  String result = message!; // Throws runtime error.
+
+  ```
+
+* `??`: to ensure you always have a non-null value
+  ```dart
+  String? name = null;
+  String greeting = name ?? "Guest"; // "Guest" is used because name is null.
+
+  int? nullableNumber = 42;
+  int number = nullableNumber ?? 0; // 42 is used because nullableNumber is not null.
+  ```
+
+* `??=`: assigns a value only if the variable is currently null
+  ```dart
+  int? value;
+  value ??= 10; // Assigns 10 because value is null.
+  print(value); // Output: 10.
+  
+  value ??= 20; // Does nothing because value is no longer null.
+  print(value); // Output: 10.
+  ```
+* `?.`: allows you to call a method or access a property only if the object is not null (ใช้สำหรับป้องกันการเรียก method หรือ properties จาก object ที่เป็น null)
+  ```dart
+  String? message = "Hello, Dart!";
+  print(message?.length); // Output: 12 (calls 'length' only if message is not null).
+  
+  message = null;
+  print(message?.length); // Output: null (safe, no runtime error).
+
+  ```
+* `?[]`: allows safe access to an element in a collection (List, Map, etc.) only if the collection is not null. (คล้าย `?.` ใช้สำหรับป้องกันการเข้าถึง element ที่เป็น null ใน List, Map, etc.)
+  ```dart
+  Map<String, String>? mapItems = {"name": "Eiei"};
+  print(mapItems?["name"]); // Output: Eiei (accesses the value safely).
+  
+  mapItems = null;
+  print(mapItems?["name"]); // Output: null (safe, no runtime error).
+  ```
+
+## Advanced Classes
+General structure
+```dart
+class Children extends ParentClass {
+  //...
+}
+```
