@@ -1,6 +1,9 @@
-﻿# Dart-journey
+﻿# Flutter-journey
 
-# dart#2
+# dart #1
+(unfinished)
+
+# dart #2
 
 
 
@@ -196,5 +199,98 @@ General structure
 ```dart
 class Children extends ParentClass {
   //...
+}
+```
+
+
+# Flutter & Widget
+
+## Building a Project
+in command line or powershell, type `flutter create <app_name>` to create a project.
+
+## Structure
+### MaterialApp
+MaterialApp is a predefined class in flutter
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: const Center(
+        child: Text('Hello',
+          style: TextStyle(
+            fontSize: 50,
+            color: Colors.blue,
+            fontWeight: FontWeight.bold,
+            
+          )
+        )
+      )
+    )
+  );
+}
+```
+
+or 
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+
+  Widget app = MaterialApp(
+      home: const Center(
+        child: Text('Hello',
+          style: TextStyle(
+            fontSize: 50,
+            color: Colors.blue,
+            fontWeight: FontWeight.bold,
+            
+          )
+        )
+      )
+    );
+
+  runApp(app);
+}
+```
+Result: <br>
+<img src="https://github.com/user-attachments/assets/8c607d4c-5c3e-4dcb-b1bb-e707e7e2ffca" alt="Image 1" width="200" />
+<br>
+Example: <br>
+<img src="https://github.com/user-attachments/assets/c25b86e0-cf71-497b-b5a2-b11f76df444e" alt="Image 2" width="400" />
+
+
+
+
+### Scaffold
+**Scaffold** is used under **MaterialApp**, it gives you many basic functions like AppBar, BottomNavigationBar, Drawer, FloatingActionButton, etc. However, **you don’t always need a Scaffold**. If your page doesn’t require AppBar, BottomNavigationBar, etc.
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+
+  Widget app = MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Helooo"),
+          centerTitle: true,
+        ),
+        body: const Center(
+          child: Text('Hello',
+            style: TextStyle(
+              fontSize: 50,
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+            )
+          )
+      )
+    ), theme: ThemeData.dark()
+  );
+
+  
+  runApp(app);
+
 }
 ```
